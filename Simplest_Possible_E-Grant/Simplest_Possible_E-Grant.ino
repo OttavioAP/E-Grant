@@ -40,7 +40,7 @@ void setup() {
   Serial.begin(9600);
   Serial.println("test serial");
 
-   /* 
+   
     // time reset stuff
     clock.setClockMode(false);  // set to 24h
     //setClockMode(true); // set to 12h
@@ -49,10 +49,10 @@ void setup() {
     clock.setMonth(1);
    clock.setDate(31);
     clock.setDoW(3);
-    clock.setHour(20);
-    clock.setMinute(40);
+    clock.setHour(9);
+    clock.setMinute(11);
     clock.setSecond(30);
-*/
+
 
     //set alarm
       alarmDay = clock.getDoW();
@@ -177,4 +177,10 @@ Serial.print("2");
         Serial.print(" A1!");
         infiniteShockDeathSpiral();
   }
+      Serial.println(clock.getSecond());
+      Serial.println(clock.getMinute());
+      Serial.println(clock.getHour(h12Flag, pmFlag));
+
+
+
 }
