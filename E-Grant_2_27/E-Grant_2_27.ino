@@ -174,7 +174,7 @@ void displayTime(){
 
     if(displayFlag){
       Serial.println("actually made it");
-          tft.fillScreen(ST77XX_BLACK);
+    tft.fillScreen(ST77XX_BLACK);
     tft.setCursor(0, 0);
     tft.setTextColor( ST77XX_WHITE);
     tft.setTextWrap(true);    
@@ -290,10 +290,13 @@ void setup() {
        Second = clock.getSecond();
       
 
+    //Hour = 2;
+    //Minute = 24;
+    //Second =0;
   
-    // clock.setHour(Hour);
-     // clock.setMinute(Minute);
-      //clock.setSecond(Second);
+    //clock.setHour(Hour);
+    //clock.setMinute(Minute);
+    //clock.setSecond(Second);
       
   //end set time
 
@@ -305,8 +308,7 @@ void setup() {
         alarmMinute %=60;
       //alarmMinute = 30;
       alarmSecond = 0 ;
-      clock.setA1Time(clock.getDoW(), alarmHour, alarmMinute, alarmSecond, 0x0, true,  //DOW, Hour, Minute, Second, 
-      false, false);
+      //clock.setA1Time(clock.getDoW(), alarmHour, alarmMinute, alarmSecond, 0x0, true,  //DOW, Hour, Minute, Second, false, false);
       clock.turnOnAlarm(1);
   
   //end set alarm
@@ -410,6 +412,10 @@ if(state == 2){
   }
 
 if(state == 3){
+      Serial.println(" calling display from 3");
+  displayTime();
+
+  
   //displayFlag =1; //show 
    //clock.getA1Time(alarmDay, alarmHour, alarmMinute, alarmSecond, alarmBits, alarmDy, alarmH12Flag, alarmPmFlag);
         if ((clock.getHour(h12Flag, pmFlag) == alarmHour) && (clock.getMinute() == alarmMinute) )    {
@@ -464,8 +470,7 @@ if(state == 3){
   //check for button press. if button has been pressed, then display new alarm time
   //check if time has passed
   //set nextstate
-  Serial.println(" calling display from 3");
-  displayTime();
+
   }
   
 
